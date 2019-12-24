@@ -9,12 +9,14 @@ services:
     volumes:
       - ./conf:/app/conf
     environment:
-      GO_SSO_WORKDIR: /app
+      GO_MEMO_WORKDIR: /app
       service_env: production
       gin_env: production
       GIN_MODE: release
+    networks:
+      - memo
 
-  rpa_db:
+  memo_db:
     image: mysql:5.7
     container_name: rpa_db
     restart: always
@@ -27,3 +29,8 @@ services:
       - ./build/db/config:/etc/mysql
     ports:
       - 3306:3306
+    networks:
+      - memo
+
+networks:
+  memo:
