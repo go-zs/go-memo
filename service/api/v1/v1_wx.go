@@ -35,7 +35,8 @@ func (this *WxViewset) Weixin(c *gin.Context) (err error) {
 	s.Nonce = com.StrTo(c.Query("nonce")).MustInt()
 
 	if s.Confirm() {
-		return this.SuccessResponse(c, s.Echostr)
+		c.JSON(200, s.Echostr)
+		return
 	} else {
 		return errors.New("wrong echostr")
 	}
