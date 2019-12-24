@@ -1,6 +1,6 @@
 # 构建
 # MAINTAINER zs "810909753@qq.com"
-FROM golang:latest as builder
+FROM golang:1.12.1 as builder
 
 WORKDIR /app
 ENV GOPROXY   https://gocenter.io
