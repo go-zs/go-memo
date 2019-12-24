@@ -18,7 +18,7 @@ services:
 
   memo_db:
     image: mysql:5.7
-    container_name: rpa_db
+    container_name: memo_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: zs
